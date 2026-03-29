@@ -6,4 +6,5 @@ itsdangerous
 click
 openai
 reportlab
+matplotlib
 
