@@ -4,4 +4,5 @@ werkzeug
 jinja2
 itsdangerous
 click
+openai
 
