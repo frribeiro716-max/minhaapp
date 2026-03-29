@@ -7,8 +7,8 @@ from db import get_db, close_db
 import os
 import base64
 
-from openai import OpenAI
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+#from openai import OpenAI
+#client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 
 from reportlab.lib.pagesizes import A4
