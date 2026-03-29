@@ -1,0 +1,7 @@
+app_name: aplicacao_fr
+type: web
+src: .
+engine: python3.9
+
+run:
+  command: python app.py

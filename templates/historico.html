@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Histórico Mensal{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">Histórico Mensal</h1>
+
+<a href="{{ url_for('dashboard') }}" class="btn btn-primary mb-4">Voltar ao Dashboard</a>
+
+
+{% if historico %}
+    {% for mes, dados in historico.items() %}
+        <div class="card mb-4 p-3">
+            <h3>{{ mes }}</h3>
+
+            <p><strong>Total de Aportes:</strong> {{ dados.total_aportes }} €</p>
+            <p><strong>Total de Despesas:</strong> {{ dados.total_despesas }} €</p>
+            <p><strong>Saldo do Mês:</strong> {{ dados.saldo }} €</p>
+
+            <hr>
+
+            <h5>Despesas</h5>
+            {% if dados.despesas %}
+                <ul>
+                    {% for d in dados.despesas %}
+                        <li>{{ d.data }} — {{ d.descricao }}: {{ d.valor }} €</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Sem despesas registadas.</p>
+            {% endif %}
+
+            <h5 class="mt-3">Aportes</h5>
+            {% if dados.aportes %}
+                <ul>
+                    {% for a in dados.aportes %}
+                        <li>{{ a.data }} — {{ a.valor }} €</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Sem aportes registados.</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% else %}
+    <p>Não existe histórico disponível.</p>
+{% endif %}
+
+{% endblock %}

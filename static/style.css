@@ -1,0 +1,114 @@
+/* =========================================
+   FUNDO DO DASHBOARD (sempre atrás)
+   ========================================= */
+.dashboard-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/img/bitcoin.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: -10;
+    filter: blur(1px);
+}
+
+/* =========================================
+   GARANTIR QUE O CONTEÚDO FICA POR CIMA
+   ========================================= */
+.container {
+    position: relative;
+    z-index: 10;
+}
+
+/* NAVBAR SEMPRE POR CIMA DO FUNDO */
+.navbar {
+    position: relative;
+    z-index: 9999;
+}
+
+/* =========================================
+   BOTÕES ALINHADOS E UNIFORMES
+   ========================================= */
+.dashboard-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.dashboard-buttons .btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    min-width: 180px;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dashboard-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* =========================================
+   CARDS MODERNOS
+   ========================================= */
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   FORMULÁRIOS LADO A LADO (RESPONSIVO)
+   ========================================= */
+@media (min-width: 992px) {
+    .card {
+        width: 48%;
+    }
+
+    .card:nth-child(1),
+    .card:nth-child(2) {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+/* =========================================
+   MODO ESCURO (opcional)
+   ========================================= */
+body.dark-mode {
+    background-color: #121212;
+    color: #eaeaea;
+}
+
+body.dark-mode .card {
+    background: rgba(30, 30, 30, 0.85);
+    color: #fff;
+}
+
+body.dark-mode .btn {
+    color: #fff;
+}
+
+/* =========================================
+   ANIMAÇÃO SUAVE AO CARREGAR
+   ========================================= */
+body {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
